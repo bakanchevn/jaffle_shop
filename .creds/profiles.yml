@@ -29,7 +29,7 @@ config:
     # If True, dbt will track anonymized usage statistics. If set to
     # False, no events will be tracked. See below for more information.
     
-    # Defult: True
+    # Default: True
     send_anonymous_usage_stats: False
     
     # If True, dbt will colorize the terminal output. If False, the
@@ -44,7 +44,7 @@ jaffle_shop:
       type: postgres
       threads: 2
       host: localhost
-      port: 5432
+      port: 5732
       user: postgres
       pass: postgres
       dbname: postgres
