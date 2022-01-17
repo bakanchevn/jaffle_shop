@@ -2,6 +2,12 @@ version: 2
 
 models:
   - name: customers
+    tests:
+      - dbt_expectations.expect_table_row_count_to_equal_other_table:
+            compare_model: ref("raw_customers")
+            factor: 1 # (Optional)
+            row_condition: "1 = 1" # (Optional)
+            compare_row_condition: "1 = 1" # (Optional)
     description: This table has basic information about a customer, as well as some derived facts based on a customer's orders
 
     columns:
@@ -98,7 +104,7 @@ models:
       - name: transaction_value
         tests:
           - is_more_than_val:
-                value: 0
+                value: 1000
                 strict: false
           - dbt_utils.not_null_proportion:
                 at_least: 0.95

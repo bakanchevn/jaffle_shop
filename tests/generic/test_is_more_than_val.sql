@@ -8,9 +8,9 @@ validation_errors as (
     select spec_field
     from validation
     {% if strict %}
-    where spec_field <= {{value}}
+    where not (spec_field > {{value}})
     {% else %}
-    where spec_field < {{value}}
+    where not (spec_field >= {{value}})
     {% endif %}
 )
 select *
