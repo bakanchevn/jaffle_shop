@@ -97,6 +97,9 @@ models:
 
       - name: transaction_value
         tests:
+          - is_more_than_val:
+                value: 0
+                strict: false
           - dbt_utils.not_null_proportion:
                 at_least: 0.95
           - dbt_expectations.expect_column_values_to_be_between:
